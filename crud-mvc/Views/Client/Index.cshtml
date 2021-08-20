@@ -1,0 +1,89 @@
+﻿@model IEnumerable<crud_mvc.Models.Client>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h1 class="text-primary">Client</h1>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Client" asp-action="Create" class="btn btn-primary w-50 ">Create New</a>
+        </div>
+    </div>
+
+    @if (Model.Count() > 0)
+    {
+
+        <table class="table table-borderless table-striped" style="width:100%">
+            <tr>
+
+                <th class="main-th">
+                    Fullname
+                </th>
+                <th class="main-th">
+                    City
+                </th>
+                <th class="main-th">
+                    CEP
+                </th>
+                <th class="main-th">
+                    Address
+                </th>
+                <th class="main-th">
+                    District
+                </th>
+                <th class="main-th">
+                    State
+                </th>
+                <th class="main-th"></th>
+            </tr>
+
+            @foreach (var client in Model)
+            {
+        <tr>
+
+            <td class="main-td" width="10%">
+                @client.FullName
+            </td>
+            <td class="main-td" width="10%">
+                @client.City
+            </td>
+            <td class="main-td" width="10%">
+                @client.CEP
+            </td>
+            <td class="main-td" width="10%">
+                @client.Address
+            </td>
+            <td class="main-td" width="10%">
+                @client.District
+            </td>
+            <td class="main-td" width="10%">
+                @client.State
+            </td>
+            <td class="btn-td" width="30%">
+                <div class="w-100 btn-group" role="group">
+                    <a asp-controller="Client" asp-action="Edit" asp-route-Id="@client.Id" class="btn btn-warning mx-1">Edit</a>
+                    <a asp-controller="Client" asp-action="Delete" asp-route-Id="@client.Id" class="btn btn-danger mx-1">Delete</a>
+                </div>
+
+
+            </td>
+        </tr>
+            }
+        </table>
+    }
+    else
+    {
+
+    <p>No clients found</p>
+    }
+
+</div>
+
+
+
+
+
+

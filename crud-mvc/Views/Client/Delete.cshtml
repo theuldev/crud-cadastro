@@ -1,0 +1,81 @@
+﻿@model crud_mvc.Models.Client
+@{
+    ViewBag.Title = "Delete";
+}
+
+<form method = "post" asp-action="_Delete">
+    <input asp-for="Id" hidden />
+    <div class="border m-5 p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3 ">Delete</h2>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="FullName"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="City"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="CEP"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input class="form-control" asp-for="FullName" disabled>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" asp-for="City" disabled>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" asp-for="CEP" disabled>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Address"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="District"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="State"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input class="form-control" asp-for="Address" disabled>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" asp-for="District" disabled>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" asp-for="State" disabled>
+                    </div>
+
+                </div>
+
+                <div class="form-group row pt-3">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-danger  w-75" value="Delete" />
+
+                        </div>
+                        <div class="col">
+                            <a asp-controller="Client" asp-action="Index" class="btn btn-success w-75">Back</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</form>
