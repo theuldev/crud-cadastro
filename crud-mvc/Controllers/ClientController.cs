@@ -1,10 +1,7 @@
 ﻿using crud_mvc.Data;
 using crud_mvc.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace crud_mvc.Controllers
 {
@@ -16,7 +13,8 @@ namespace crud_mvc.Controllers
         {
             _db = db;
         }
-
+       
+     
         public IActionResult Index()
         {
             IEnumerable<Client> clientobj = _db._Client;
@@ -25,6 +23,7 @@ namespace crud_mvc.Controllers
 
         public IActionResult Create()
         {
+               
             return View();
         }
 
@@ -32,20 +31,23 @@ namespace crud_mvc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Client obj)
         {
+
             if (ModelState.IsValid)
             {
-                
+              
                 _db._Client.Add(obj);
                 _db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", obj);
+
             }
+
             else
             {
                 return View(obj);
             }
 
         }
-       
+
         public IActionResult Delete(int? id)
         {
             if (id == null || id == 0)

@@ -2,9 +2,13 @@
 @{
     ViewBag.Title = "Edit";
 }
+<html>
+    <head>
 
-<form method="post" asp-action="_Edit">
-    <input asp-for="Id" hidden />
+    </head>
+    <body>
+        <form method="post" asp-action="_Edit">
+      <input asp-for="Id" hidden />
     <div class="border m-5 p-3">
         <div class="form-group row">
             <h2 class="text-black-50 pl-3">Edit</h2>
@@ -18,24 +22,26 @@
                         <label asp-for="FullName"></label>
                     </div>
                     <div class="col-4">
-                        <label asp-for="City"></label>
+                        <label asp-for="CEP"></label>
                     </div>
                     <div class="col-4">
-                        <label asp-for="CEP"></label>
+                        <label asp-for="City"></label>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-4">
-                        <input class="form-control" asp-for="FullName" required>
-                    </div>
-                    <div class="col-4">
-                        <input class="form-control" asp-for="City" required>
-                    </div>
-                    <div class="col-4">
-                        <input class="form-control" asp-for="CEP" required>
-                    </div>
 
+                    <div class="col-4">
+                        <input class="form-control" id="fullname"  asp-for="FullName" required= "required">
+                    </div>
+                   
+                    <div class="col-4">
+                        <input class="form-control" id="cep" asp-for="CEP" required= "required">
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control"  id="city"  asp-for="City" readonly = "readonly">
+                    </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-4">
                         <label asp-for="Address"></label>
@@ -49,13 +55,13 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <input class="form-control" asp-for="Address" required>
+                        <input class="form-control" id="address" asp-for="Address" readonly = "readonly">
                     </div>
                     <div class="col-4">
-                        <input class="form-control" asp-for="District" required>
+                        <input class="form-control" id="district" asp-for="District" readonly = "readonly">
                     </div>
                     <div class="col-4">
-                        <input class="form-control" asp-for="State" required>
+                        <input class="form-control" id="state" asp-for="State" readonly = "readonly">
                     </div>
 
                 </div>
@@ -76,3 +82,8 @@
         </div>
     </div>
 </form>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/site.js"></script>
+    </body>
+</html>
+
