@@ -1,5 +1,7 @@
 ﻿using crud_mvc.Data;
 using crud_mvc.Models;
+using crud_mvc.Validations;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -9,18 +11,20 @@ namespace crud_mvc.Controllers
     {
         private readonly ApplicationDbContext _db;
 
+
         public ClientController(ApplicationDbContext db)
         {
             _db = db;
         }
        
-     
+                                                                                   
         public IActionResult Index()
         {
             IEnumerable<Client> clientobj = _db._Client;
             return View(clientobj);
         }
 
+      
         public IActionResult Create()
         {
                
@@ -31,8 +35,10 @@ namespace crud_mvc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Client obj)
         {
+            ClientValidation validation = new ClientValidation();
+            ValidationResult validationResult = validation.Validate(obj);
 
-            if (ModelState.IsValid)
+            if (validationResult.IsValid)
             {
               
                 _db._Client.Add(obj);
@@ -47,6 +53,12 @@ namespace crud_mvc.Controllers
             }
 
         }
+        public IActionResult Details(int? id)
+        {
+            var obj = _db._Client.Find(id);
+            return View(obj);
+        }
+
 
         public IActionResult Delete(int? id)
         {
@@ -62,6 +74,7 @@ namespace crud_mvc.Controllers
             return View(obj);
 
         }
+        
         [ValidateAntiForgeryToken]
         public IActionResult _Delete(int? id)
         {
@@ -83,7 +96,7 @@ namespace crud_mvc.Controllers
         
         public IActionResult Edit(int? id)
         {
-            if (id == null || id == 0)
+            if ( id == null || id == 0)
             {
                 return NotFound();
             }
