@@ -1,4 +1,6 @@
 using crud_mvc.Data;
+using crud_mvc.Validations;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +37,10 @@ namespace crud_mvc
             );
 
             services.AddControllersWithViews();
+            services.AddControllers()
+                .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Startup>());
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

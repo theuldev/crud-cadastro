@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crud-mvc", "crud-mvc\crud-mvc.csproj", "{C9739FDB-30DE-4257-8B25-C83AE97399CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "moviment-crud", "crud-mvc\moviment-crud.csproj", "{C9739FDB-30DE-4257-8B25-C83AE97399CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

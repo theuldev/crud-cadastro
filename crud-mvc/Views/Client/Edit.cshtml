@@ -35,7 +35,7 @@
                     </div>
                    
                     <div class="col-4">
-                        <input class="form-control" id="cep" asp-for="CEP" required= "required">
+                        <input class="form-control" id="cep" asp-for="CEP" placeholder="Ex:01001000"  required= "required">
                     </div>
                     <div class="col-4">
                         <input class="form-control"  id="city"  asp-for="City" readonly = "readonly">
@@ -65,6 +65,110 @@
                     </div>
 
                 </div>
+                 <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="CPF"></label>
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="RG"></label>
+                        </div>
+
+                        <div class="col-4">
+                            <label asp-for="Phone"></label>
+                        </div>
+                    </div>
+
+                     <div class="form-group row">
+                        <div class="col-4">
+                            <input class="form-control" asp-for="CPF" pattern="/^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/ | ([0-9]{11}))$/" required = "required" >
+                        </div>
+                        <div class="col-4">
+                            <input class="form-control"  asp-for="RG" required = "required" >
+                        </div>
+                        <div class="col-4">
+                              <input class="form-control" type= "tel" asp-for="Phone" pattern="([0-9]){2}[9]{1}[0-9]{4}[0-9]{4}" required = "required" >
+                        </div>
+                    </div>
+
+                      <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Career"></label>
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="Service"></label>
+                        </div>
+
+                        <div class="col-4">
+                            <label asp-for="HealthI"></label>
+                        </div>
+                    </div>
+
+                     <div class="form-group row">
+                        <div class="col-4">
+                            <input class="form-control" asp-for="Career" required = "required" >
+                        </div>
+                        <div class="col-4">
+                            <select asp-for="Service">
+                                <option>Aculputura</option>
+                                <option>Fisioterapia</option>
+                                <option>RPG</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                              <select asp-for="HealthI">
+                                  <option>Bradesco</option>
+                                  <option>SulAmerica</option>
+                                  <option>Cassi</option>
+                              </select>
+                        </div>
+                    </div>
+
+                    
+                      <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Gender"></label>
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="MCivil"></label>
+                        </div>
+
+                        <div class="col-4">
+                            <label asp-for="Details"></label>
+                        </div>
+                    </div>
+
+                     <div class="form-group row">
+                        <div class="col-4">
+                            <select asp-for="Gender">
+                                <option>Masculino</option>
+                                <option>Feminino</option>
+                            </select>
+
+                        </div>
+                        <div class="col-4">
+                            <select asp-for="MCivil">
+                                <option>Solteiro</option>
+                                <option>Casado</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                              <input class="form-control"  asp-for="Details" required = "required" >
+                        </div>
+                    </div>
+                     
+                      <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Email"></label>
+                        </div>
+
+                        <div class="form-group row">
+                        <div class="col-4">
+                            <input class="form-control" type= "email" asp-for="Email" required = "required" >
+                        </div>
+                       
+                    </div>
+                       
+                    </div>
                 <div class="form-group row pt-3">
                     <div class="col-8 offset-2 row">
                         <div class="col">

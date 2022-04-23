@@ -1,6 +1,7 @@
 ﻿@model crud_mvc.Models.Client
 @{
-    Client client = new Client();
+
+    ViewBag.Title = "Details";
 }
 <html>
 
@@ -10,10 +11,10 @@
 </head>
 <body>
 
-    <form asp-action ="Create" asp-controller = Client>
+    <form >
         <div class="border m-5 p-3">
             <div class="form-group row">
-                <h2 class="text-black-50 pl-3">Create</h2>
+                <h2 class="text-black-50 pl-3">Details</h2>
             </div>
             <div class="row">
                 <div class="col-12" >
@@ -33,11 +34,11 @@
 
                     <div class="form-group row">
                         <div class="col-4">
-                            <input class="form-control"  id="fullname" asp-for="FullName" required = "required" >
+                            <input class="form-control"  id="fullname" asp-for="FullName" readonly = "readonly" >
                         </div>
                         <div class="col-4">
                            
-                            <input type="text" class="form-control" id="cep" placeholder="Ex:01001000" asp-for="CEP" required = "required" >
+                            <input type="text" class="form-control" asp-for="CEP" readonly= "readonly">
                         </div>
                         <div class="col-4">
                             <input class="form-control" id="city" asp-for="City" readonly = "readonly" >
@@ -84,13 +85,13 @@
 
                      <div class="form-group row">
                         <div class="col-4">
-                            <input class="form-control" asp-for="CPF" pattern="/^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/ | ([0-9]{11}))$/" required = "required" >
+                            <input class="form-control" asp-for="CPF" readonly="readonly">
                         </div>
                         <div class="col-4">
-                            <input class="form-control"  asp-for="RG" required = "required" >
+                            <input class="form-control"  asp-for="RG" readonly="readonly" >
                         </div>
                         <div class="col-4">
-                              <input class="form-control" type= "tel" asp-for="Phone" pattern="([0-9]){2}[9]{1}[0-9]{4}[0-9]{4}" required = "required" >
+                              <input class="form-control" type= "tel" asp-for="Phone" readonly="readonly">
                         </div>
                     </div>
 
@@ -109,21 +110,13 @@
 
                      <div class="form-group row">
                         <div class="col-4">
-                            <input class="form-control" asp-for="Career" required = "required" >
+                            <input class="form-control" asp-for="Career" readonly="readonly">
                         </div>
                         <div class="col-4">
-                            <select asp-for="Service">
-                                <option>Aculputura</option>
-                                <option>Fisioterapia</option>
-                                <option>RPG</option>
-                            </select>
+                           <input asp-for = "Service" readonly="readonly">
                         </div>
                         <div class="col-4">
-                              <select asp-for="HealthI">
-                                  <option>Bradesco</option>
-                                  <option>SulAmerica</option>
-                                  <option>Cassi</option>
-                              </select>
+                              <input asp-for = "HealthI" readonly="readonly">
                         </div>
                     </div>
 
@@ -143,20 +136,14 @@
 
                      <div class="form-group row">
                         <div class="col-4">
-                            <select asp-for="Gender">
-                                <option>Masculino</option>
-                                <option>Feminino</option>
-                            </select>
+                           <input asp-for="Gender" readonly="readonly"> 
 
                         </div>
                         <div class="col-4">
-                            <select asp-for="MCivil">
-                                <option>Solteiro</option>
-                                <option>Casado</option>
-                            </select>
+                            <input asp-for="MCivil" readonly="readonly">
                         </div>
                         <div class="col-4">
-                              <input class="form-control"  asp-for="Details" required = "required" >
+                              <input class="form-control"  asp-for="Details" readonly="readonly" >
                         </div>
                     </div>
                      
@@ -167,7 +154,7 @@
 
                         <div class="form-group row">
                         <div class="col-4">
-                            <input class="form-control" type= "email" asp-for="Email" required = "required" >
+                            <input class="form-control" type= "email" asp-for="Email" readonly="readonly" >
                         </div>
                        
                     </div>
@@ -178,11 +165,11 @@
                         <div class="col-8 offset-2 row">
                             <div class="col">
 
-                                <button class="btn btn-info w-75" id="btn-create" asp-controller = "Client" asp-action = "Create" >Create</button>
+                                <button class="btn btn-info w-75" asp-controller = "Client" asp-action="Edit" asp-route-Id="@Model.Id">Edit</button>
 
                             </div>
                             <div class="col">
-                                <a asp-controller="Client" asp-action="Index"  class="btn btn-danger w-75">Back</a>
+                                <a asp-controller="Client" asp-action="Delete" asp-route-Id="@Model.Id"  class="btn btn-danger w-75">Delete</a>
                             </div>
                         </div>
                     </div>
@@ -195,5 +182,5 @@
 </body>
 
 </html>
-<
+
 
